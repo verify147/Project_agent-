@@ -1,0 +1,49 @@
+{
+  "knowledge_base_name": "Academic Citation Rules",
+  "version": "1.0",
+  "status": "initial_policy",
+  "purpose": "Define how the academic system cites sources and manages references.",
+  "default_citation_style": "APA_7",
+  "citation_rules": {
+    "in_text_citations": true,
+    "reference_list_required": true,
+    "every_in_text_citation_requires_reference_entry": true,
+    "every_reference_entry_should_be_cited_in_text": true,
+    "direct_quotes_require_page_or_location_when_available": true,
+    "paraphrased_ideas_require_citations": true,
+    "statistics_require_sources": true,
+    "technical_equations_require_sources_when_adopted": true,
+    "cite_original_sources_when_available": true,
+    "never_invent_citations": true
+  },
+  "reference_fields": [
+    "authors",
+    "publication_year",
+    "title",
+    "journal_or_publisher",
+    "volume",
+    "issue",
+    "page_range",
+    "doi",
+    "url"
+  ],
+  "reference_handling": {
+    "omit_unavailable_optional_fields": true,
+    "do_not_guess_missing_metadata": true,
+    "mark_unverified_references": true,
+    "distinguish_doi_from_url": true,
+    "check_that_doi_matches_the_work": true,
+    "check_that_url_leads_to_the_intended_source": true
+  },
+  "validation_rules": [
+    "Flag citations that have no matching reference entry.",
+    "Flag reference entries that are never cited in the project.",
+    "Flag incomplete reference information for manual review.",
+    "Do not claim that a reference has been verified unless a verification check was performed.",
+    "Preserve the citation style required by the institution when verified guidelines are available."
+  ],
+  "institutional_override": {
+    "enabled": true,
+    "rule": "Verified departmental or institutional citation requirements take precedence over the default style."
+  }
+}
