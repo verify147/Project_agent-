@@ -1,0 +1,104 @@
+{
+  "department": "Electrical/Electronic Engineering",
+  "discipline_code": "EEE",
+  "institution": "Federal Polytechnic Nasarawa",
+  "knowledge_status": "provisional",
+  "verification_status": "departmental_guidelines_not_verified",
+  "verified_sources": [],
+  "project_categories": [
+    "electrical_system_design",
+    "electronic_circuit_design",
+    "power_systems",
+    "renewable_energy",
+    "instrumentation",
+    "automation",
+    "embedded_systems",
+    "control_systems",
+    "electrical_installations"
+  ],
+  "technical_requirements": {
+    "define_system_requirements": true,
+    "provide_circuit_diagrams_where_relevant": true,
+    "identify_component_ratings": true,
+    "show_relevant_electrical_calculations": true,
+    "explain_operating_principles": true,
+    "document_hardware_and_software": true,
+    "include_protection_and_safety": true,
+    "define_testing_procedures": true,
+    "analyse_actual_measurements": true
+  },
+  "relevant_technical_areas": [
+    "circuit_theory",
+    "electrical_machines",
+    "power_systems",
+    "analogue_electronics",
+    "digital_electronics",
+    "control_engineering",
+    "electrical_measurements",
+    "renewable_energy",
+    "microcontrollers",
+    "signal_processing"
+  ],
+  "design_checks": [
+    "voltage_and_current_ratings",
+    "power_and_energy_requirements",
+    "component_tolerances",
+    "conductor_sizing_where_applicable",
+    "protection_and_fault_conditions",
+    "thermal_limits",
+    "system_efficiency",
+    "electrical_safety"
+  ],
+  "testing_requirements": [
+    "identify_test_instruments",
+    "document_test_conditions",
+    "record_voltage_and_current_as_applicable",
+    "compare_measured_and_calculated_values",
+    "evaluate_operational_performance",
+    "document_faults_and_limitations"
+  ],
+  "chapter_guidance": {
+    "chapter_one": [
+      "background_of_the_study",
+      "statement_of_the_problem",
+      "aim_and_objectives",
+      "justification_of_the_study",
+      "scope_of_the_study"
+    ],
+    "chapter_two": [
+      "electrical_or_electronic_theory",
+      "review_of_related_systems",
+      "review_of_existing_designs",
+      "comparison_of_relevant_technologies",
+      "identified_design_gap"
+    ],
+    "chapter_three": [
+      "materials_and_components",
+      "system_block_diagram",
+      "circuit_or_system_design",
+      "design_calculations",
+      "construction_or_implementation",
+      "software_and_control_logic_where_relevant",
+      "testing_procedure"
+    ],
+    "chapter_four": [
+      "actual_test_results",
+      "performance_analysis",
+      "comparison_with_design_requirements",
+      "discussion_of_findings"
+    ],
+    "chapter_five": [
+      "summary",
+      "conclusion",
+      "recommendations"
+    ]
+  },
+  "integrity_rules": {
+    "never_invent_measurements": true,
+    "verify_component_specifications": true,
+    "show_calculation_inputs_and_units": true,
+    "verify_references": true,
+    "document_safety_assumptions": true,
+    "verify_official_chapter_structure": true
+  }
+}
