@@ -1,0 +1,92 @@
+{
+  "knowledge_base_name": "Academic Research Source Quality Rules",
+  "version": "1.0",
+  "status": "initial_policy",
+  "purpose": "Define how the academic research system evaluates, records, and uses research sources.",
+  "source_categories": {
+    "peer_reviewed_journals": {
+      "priority": 1,
+      "use_for": [
+        "scientific_findings",
+        "engineering_methods",
+        "experimental_results",
+        "literature_review"
+      ],
+      "verification_required": true
+    },
+    "academic_books": {
+      "priority": 2,
+      "use_for": [
+        "established_theory",
+        "engineering_principles",
+        "definitions",
+        "equations"
+      ],
+      "verification_required": true
+    },
+    "official_standards": {
+      "priority": 1,
+      "use_for": [
+        "engineering_standards",
+        "testing_procedures",
+        "safety_requirements",
+        "technical_specifications"
+      ],
+      "verification_required": true,
+      "check_current_edition": true
+    },
+    "government_and_institutional_publications": {
+      "priority": 2,
+      "use_for": [
+        "official_statistics",
+        "government_policy",
+        "institutional_requirements",
+        "agricultural_data"
+      ],
+      "verification_required": true
+    },
+    "university_repositories": {
+      "priority": 3,
+      "use_for": [
+        "previous_research",
+        "theses",
+        "dissertations",
+        "methodology_examples"
+      ],
+      "verification_required": true
+    },
+    "commercial_websites": {
+      "priority": 4,
+      "use_for": [
+        "manufacturer_specifications",
+        "product_information",
+        "current_prices"
+      ],
+      "limitations": [
+        "Do not treat marketing claims as independent scientific evidence.",
+        "Use manufacturer documentation only for claims it can reasonably support."
+      ],
+      "verification_required": true
+    }
+  },
+  "reference_verification": {
+    "verify_title": true,
+    "verify_authors": true,
+    "verify_publication_year": true,
+    "verify_journal_or_publisher": true,
+    "verify_doi_when_available": true,
+    "verify_url_when_available": true,
+    "never_invent_references": true,
+    "mark_unverified_references": true
+  },
+  "research_rules": [
+    "Prefer original sources when available.",
+    "Use recent research for rapidly changing technologies.",
+    "Retain foundational older sources when they remain relevant.",
+    "Do not claim that a source supports a statement without checking its relevant content.",
+    "Distinguish established facts from estimates, assumptions, and interpretations.",
+    "Record source details when collecting evidence.",
+    "Do not fabricate quotations, page numbers, experimental results, or statistics.",
+    "Report when a source cannot be accessed or fully verified."
+  ]
+}
