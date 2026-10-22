@@ -1,0 +1,36 @@
+{
+  "institution": {
+    "name": "Federal Polytechnic Nasarawa",
+    "rules_status": "provisional",
+    "source_documents": [],
+    "last_verified": null
+  },
+  "academic_integrity": {
+    "do_not_invent_research_results": true,
+    "do_not_invent_references": true,
+    "distinguish_facts_from_assumptions": true,
+    "identify_missing_information": true,
+    "require_verification_of_calculations": true
+  },
+  "project_requirements": {
+    "follow_approved_departmental_guidelines": true,
+    "follow_approved_project_structure": true,
+    "use_consistent_terminology": true,
+    "support_research_claims_with_sources": true,
+    "require_consistency_between_chapters": true
+  },
+  "uncertainty_handling": {
+    "mark_unverified_rules": true,
+    "request_missing_information": true,
+    "never_present_assumptions_as_verified_facts": true
+  },
+  "formatting": {
+    "font_family": null,
+    "font_size": null,
+    "line_spacing": null,
+    "margin_requirements": null,
+    "citation_style": null,
+    "page_numbering_rules": null,
+    "status": "awaiting_official_guidelines"
+  }
+}
