@@ -1,0 +1,104 @@
+{
+  "department": "Civil Engineering",
+  "discipline_code": "CE",
+  "institution": "Federal Polytechnic Nasarawa",
+  "knowledge_status": "provisional",
+  "verification_status": "departmental_guidelines_not_verified",
+  "verified_sources": [],
+  "project_categories": [
+    "structural_design",
+    "concrete_technology",
+    "geotechnical_engineering",
+    "transportation",
+    "water_resources",
+    "environmental_engineering",
+    "construction_materials",
+    "drainage_systems",
+    "surveying_applications"
+  ],
+  "technical_requirements": {
+    "define_project_requirements": true,
+    "identify_site_and_environmental_conditions": true,
+    "document_material_properties": true,
+    "show_relevant_design_calculations": true,
+    "identify_design_codes_and_standards": true,
+    "document_sampling_and_testing_methods": true,
+    "explain_data_collection": true,
+    "analyse_actual_results": true,
+    "discuss_safety_and_environmental_impacts": true
+  },
+  "relevant_technical_areas": [
+    "structural_mechanics",
+    "reinforced_concrete",
+    "soil_mechanics",
+    "foundation_engineering",
+    "hydraulics",
+    "transportation_engineering",
+    "construction_materials",
+    "environmental_engineering",
+    "engineering_surveying",
+    "construction_management"
+  ],
+  "design_checks": [
+    "design_loads",
+    "material_strength",
+    "stability",
+    "serviceability",
+    "soil_and_site_conditions",
+    "drainage_and_water_flow",
+    "applicable_design_codes",
+    "construction_feasibility"
+  ],
+  "testing_requirements": [
+    "identify_sampling_procedures",
+    "identify_test_standards",
+    "document_instrument_calibration_where_relevant",
+    "record_actual_test_results",
+    "include_units_and_test_conditions",
+    "compare_results_with_applicable_criteria"
+  ],
+  "chapter_guidance": {
+    "chapter_one": [
+      "background_of_the_study",
+      "statement_of_the_problem",
+      "aim_and_objectives",
+      "justification_of_the_study",
+      "scope_of_the_study"
+    ],
+    "chapter_two": [
+      "civil_engineering_theory",
+      "review_of_related_research",
+      "review_of_materials_and_methods",
+      "review_of_existing_designs",
+      "identified_research_or_design_gap"
+    ],
+    "chapter_three": [
+      "materials_and_equipment",
+      "site_or_sample_description",
+      "design_methodology",
+      "design_calculations",
+      "experimental_or_field_procedures",
+      "data_analysis_methods"
+    ],
+    "chapter_four": [
+      "actual_results",
+      "tables_and_figures",
+      "engineering_analysis",
+      "comparison_with_design_criteria",
+      "discussion_of_findings"
+    ],
+    "chapter_five": [
+      "summary",
+      "conclusion",
+      "recommendations"
+    ]
+  },
+  "integrity_rules": {
+    "never_invent_field_or_laboratory_results": true,
+    "identify_data_sources": true,
+    "verify_design_standards": true,
+    "show_calculation_inputs_and_units": true,
+    "verify_references": true,
+    "require_professional_review_for_safety_critical_designs": true
+  }
+}
