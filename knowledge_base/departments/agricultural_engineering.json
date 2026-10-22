@@ -1,0 +1,70 @@
+{
+  "department": "Agricultural and Bio-Environmental Engineering Technology",
+  "institution": "Federal Polytechnic Nasarawa",
+  "knowledge_status": "initial_template",
+  "verified_sources": [],
+  "project_categories": [
+    "design",
+    "construction",
+    "fabrication",
+    "testing",
+    "performance_evaluation",
+    "agricultural_system_development"
+  ],
+  "technical_expectations": {
+    "identify_design_requirements": true,
+    "document_materials_and_equipment": true,
+    "explain_working_principles": true,
+    "show_relevant_design_calculations": true,
+    "state_assumptions_and_units": true,
+    "document_fabrication_procedures": true,
+    "describe_testing_methods": true,
+    "analyse_measured_performance": true,
+    "compare_results_with_design_objectives": true
+  },
+  "chapter_requirements": {
+    "chapter_one": [
+      "Background of the study",
+      "Statement of the problem",
+      "Aim and objectives",
+      "Justification or significance of the study",
+      "Scope of the study"
+    ],
+    "chapter_two": [
+      "Relevant theoretical background",
+      "Review of related studies",
+      "Review of relevant technologies or equipment",
+      "Research gaps or design justification"
+    ],
+    "chapter_three": [
+      "Materials and equipment",
+      "System description and working principle",
+      "Design methodology",
+      "Design calculations",
+      "Fabrication or implementation procedure",
+      "Testing and performance evaluation methods"
+    ],
+    "chapter_four": [
+      "Presentation of actual results",
+      "Analysis of results",
+      "Discussion of findings"
+    ],
+    "chapter_five": [
+      "Summary",
+      "Conclusion",
+      "Recommendations"
+      "References"
+      "Engineering Drawing"
+      "Complete bill of materials"
+      "Full performance Evaluation Data"
+      "Machine maintenance Schedule"
+    ]
+  },
+  "integrity_rules": {
+    "experimental_results_must_be_traceable": true,
+    "calculated_values_must_show_their_basis": true,
+    "assumed_values_must_be_labelled": true,
+    "missing_test_data_must_not_be_fabricated": true,
+    "chapter_headings_require_departmental_verification": true
+  }
+}
