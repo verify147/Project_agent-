@@ -1,0 +1,27 @@
+{
+  "document_type": "academic_project",
+  "institution": "Federal Polytechnic Nasarawa",
+  "verification_status": "unverified",
+  "source_document": null,
+  "rules": {
+    "paper_size": null,
+    "font_family": null,
+    "font_size": null,
+    "line_spacing": null,
+    "paragraph_alignment": null,
+    "left_margin": null,
+    "right_margin": null,
+    "top_margin": null,
+    "bottom_margin": null,
+    "heading_format": null,
+    "preliminary_page_numbering": null,
+    "main_text_page_numbering": null,
+    "citation_style": null,
+    "reference_format": null,
+    "table_caption_format": null,
+    "figure_caption_format": null
+  },
+  "notes": [
+    "Populate these fields only after reviewing verified institutional or departmental guidelines."
+  ]
+}
