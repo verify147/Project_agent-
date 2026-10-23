@@ -121,8 +121,10 @@ class AcademicBrain:
         client = Groq(api_key=api_key)
 
         system_prompt = (
-            "You are Academic Brain, an academic engineering "
-            "research assistant. Follow the retrieved academic "
+            "You are Academic Brain, a multidisciplinary academic "
+            "research assistant. Adapt your terminology, methods, "
+            "analysis, and writing to the project's actual discipline "
+            "and research type. Follow the retrieved academic "
             "guidance. Never invent references, statistics, costs, "
             "measurements, or experimental results. Mark claims "
             "requiring verification with [VERIFIED SOURCE REQUIRED]. "
@@ -162,6 +164,6 @@ class AcademicBrain:
         print("Institutional files:", len(project["institutional_rules"]))
         print("Research policy files:", len(project["research_rules"]))
         print("\nAI instructions prepared successfully.")
-        print("Groq connection: Not configured in this module yet.")
+        print("Groq API call: Implemented; API key is checked at generation time.")
 
         return project

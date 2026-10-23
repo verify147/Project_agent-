@@ -2,3 +2,15 @@ __pycache__/
 *.py[cod]
 *.backup
 .env
+
+# Local development backups
+*.before_*
+
+# Temporary checker and department tests
+/projects/checker_test/
+/projects/department_rules_test/
+
+# Standalone test output
+/test_ai_chapter.md
+# Generated project outputs and research evidence
+/projects/

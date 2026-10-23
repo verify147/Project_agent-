@@ -74,6 +74,97 @@ class ProjectChecker:
 
         return result
 
+    @staticmethod
+    def normalize_heading(heading):
+        """Normalize heading text and approved equivalent headings."""
+        import re
+
+        value = heading.strip().lower()
+        value = re.sub(r"^#+\s*", "", value)
+        value = re.sub(r"^\d+(?:\.\d+)*[.)]?\s+", "", value)
+        value = re.sub(r"[^a-z0-9 ]", " ", value)
+        value = " ".join(value.split())
+
+        aliases = {
+            "justification of the study": "significance of the study",
+            "justification or significance of the study": "significance of the study",
+            "scope of the study": "scope and limitations",
+            "aim and specific objectives": "aim and objectives",
+            "research objectives": "aim and objectives",
+        }
+
+        return aliases.get(value, value)
+
+    @classmethod
+    def extract_headings(cls, text):
+        """Extract Markdown and numbered headings only."""
+        import re
+
+        headings = []
+
+        for line in text.splitlines():
+            stripped = line.strip()
+
+            if not stripped:
+                continue
+
+            if stripped.startswith("#"):
+                headings.append(cls.normalize_heading(stripped))
+            elif re.match(r"^\d+(?:\.\d+)*[.)]?\s+\S", stripped):
+                headings.append(cls.normalize_heading(stripped))
+
+        return set(headings)
+
+    def check_department_requirements(self, text, chapter_name, plan):
+        """Check chapter text against saved department requirements."""
+
+        department = plan.get("department_requirements", {})
+        chapter_requirements = department.get(
+            "chapter_requirements", {}
+        )
+
+        chapter_key = {
+            "Chapter One": "chapter_one",
+            "Chapter Two": "chapter_two",
+            "Chapter Three": "chapter_three",
+            "Chapter Four": "chapter_four",
+            "Chapter Five": "chapter_five",
+        }.get(chapter_name)
+
+        if not chapter_key:
+            return {
+                "status": "NOT CHECKED",
+                "reason": "Unknown chapter name.",
+                "missing_requirements": [],
+            }
+
+        required = chapter_requirements.get(chapter_key, [])
+
+        if not required:
+            return {
+                "status": "NOT CHECKED",
+                "reason": "No department requirements recorded for this chapter.",
+                "missing_requirements": [],
+            }
+
+        found_headings = self.extract_headings(text)
+        missing = [
+            item for item in required
+            if self.normalize_heading(item) not in found_headings
+        ]
+
+        return {
+            "status": "NEEDS REVIEW" if missing else "PASSED TEXT MATCH CHECK",
+            "knowledge_status": department.get(
+                "knowledge_status", "unknown"
+            ),
+            "missing_requirements": missing,
+            "note": (
+                "Text matching checks wording only; it does not prove "
+                "that a section is complete or academically correct."
+            ),
+        }
+
     def check_research_evidence(self, project_dir):
         from research_evidence import ResearchEvidence
 
@@ -102,9 +193,10 @@ class ProjectChecker:
             if template_headings is not None:
                 required = template_headings
 
+        found_headings = self.extract_headings(text)
         missing = [
             heading for heading in required
-            if heading.lower() not in lower_text
+            if self.normalize_heading(heading) not in found_headings
         ]
 
         word_count = len(text.split())
@@ -124,10 +216,26 @@ class ProjectChecker:
             if "[STUDENT INPUT REQUIRED]" in line
         ]
 
+        department_report = None
+
+        if plan is not None:
+            department_report = self.check_department_requirements(
+                text=text,
+                chapter_name=chapter_name,
+                plan=plan
+            )
+
         issues = []
 
         if missing:
             issues.append("Required headings are missing.")
+
+        if (
+            department_report
+            and department_report["status"] == "NEEDS REVIEW"
+            and department_report.get("missing_requirements")
+        ):
+            issues.append("Department chapter requirements are missing.")
 
         if word_count < 300:
             issues.append("Chapter may be too short.")
@@ -167,6 +275,7 @@ class ProjectChecker:
             "chapter": chapter_name,
             "word_count": word_count,
             "missing_headings": missing,
+            "department_requirements": department_report,
             "source_flags": source_flags,
             "source_lines": source_lines,
             "student_input_flags": input_flags,

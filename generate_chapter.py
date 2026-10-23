@@ -16,6 +16,7 @@ class ChapterGenerator:
             plan = json.load(f)
 
         research_plan = plan["research_plan"]
+        department_requirements = plan.get("department_requirements", {})
         outline = research_plan["chapter_outline"]["Chapter One"]
 
         sections = "\n".join(
@@ -34,10 +35,13 @@ Use these headings in this exact order:
 
 Planning information:
 {json.dumps(research_plan, indent=2, ensure_ascii=False)}
+Department requirements (provisional; verify official school rules):
+{json.dumps(department_requirements, indent=2, ensure_ascii=False)}
+
 
 Requirements:
 - Use clear, formal academic English.
-- Explain the engineering problem and its context.
+- Explain the research problem and its context in the relevant discipline.
 - Align the aim and objectives with the project topic.
 - Keep the scope realistic.
 - Do not invent statistics, citations, references, measurements,

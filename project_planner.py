@@ -64,6 +64,24 @@ class ProjectPlanner:
                 )
             },
 
+            "department_requirements": {
+                "knowledge_status": department.get(
+                    "knowledge_status", "Not specified"
+                ),
+                "chapter_requirements": department.get(
+                    "chapter_requirements", {}
+                ),
+                "technical_expectations": department.get(
+                    "technical_expectations", {}
+                ),
+                "integrity_rules": department.get(
+                    "integrity_rules", {}
+                ),
+                "verified_sources": department.get(
+                    "verified_sources", []
+                )
+            },
+
             "research_plan": {
                 "problem_statement": {
                     "status": "needs_research",
@@ -234,6 +252,34 @@ class ProjectPlanner:
                 "required_items": template["analysis_requirements"]
             }
 
+        if template is None:
+            research_plan = plan["research_plan"]
+            research_plan["objectives"] = [
+                {"objective": "Define the research problem.", "status": "proposed"},
+                {"objective": "Review relevant literature.", "status": "proposed"},
+                {"objective": "Select a suitable research method.", "status": "proposed"},
+                {"objective": "Analyse relevant evidence.", "status": "proposed"},
+                {"objective": "Draw evidence-based conclusions.", "status": "proposed"}
+            ]
+            research_plan["methodology"] = {
+                "status": "requires_project_specific_design",
+                "steps": ["Define the research problem.", "Review credible literature.", "Choose an appropriate research design.", "Identify and obtain relevant evidence.", "Analyse evidence using a suitable method.", "Discuss findings and limitations."]
+            }
+            research_plan["analysis_requirements"] = [
+                "Suitable analysis method", "Verifiable evidence",
+                "Documented limitations", "Evidence-based conclusions"
+            ]
+            research_plan["chapter_outline"] = {
+                "Chapter One": ["Background of the Study", "Statement of the Problem", "Aim and Objectives", "Research Questions", "Significance of the Study", "Scope and Limitations"],
+                "Chapter Two": ["Review of Relevant Literature", "Review of Related Studies", "Research Gap"],
+                "Chapter Three": ["Research Design", "Data or Evidence Sources", "Methods of Analysis"],
+                "Chapter Four": ["Presentation of Findings", "Analysis and Discussion"],
+                "Chapter Five": ["Summary", "Conclusion", "Recommendations"]
+            }
+            research_plan["engineering_analysis"] = {
+                "status": "not_assumed_unclassified_topic",
+                "required_items": research_plan["analysis_requirements"]
+            }
         return plan
 
     def save_plan(self, plan):

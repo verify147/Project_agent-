@@ -34,12 +34,31 @@ class ProjectClassifier:
             "growth and yield",
             "fertilizer rates",
             "pest management",
+
+            "effect of irrigation frequency",
+            "tomato growth",
+            "effect of",
+            "crop growth",
+            "agricultural production",
+            "farm productivity",
+            "crop performance",
+            "soil moisture",
+            "water use efficiency",
+            "yield response",
         ],
         "experimental_or_laboratory": [
             "experimental investigation",
             "laboratory analysis",
             "laboratory investigation",
             "experimental study",
+
+            "experimental evaluation",
+            "experimental assessment",
+            "experimental analysis",
+            "experimental determination",
+            "evaluation of biochar",
+            "laboratory experiment",
+            "physicochemical analysis",
         ],
         "survey_or_social_research": [
             "questionnaire",
@@ -66,12 +85,25 @@ class ProjectClassifier:
             "customer satisfaction",
             "financial performance",
             "sales promotion",
+
+            "marketing strategies",
+            "agricultural smes",
+            "small and medium enterprises",
+            "business management",
+            "business strategy",
+            "entrepreneurial performance",
         ],
         "literature_review": [
             "literature review",
             "systematic review",
             "review of",
             "state of the art",
+
+            "a review of",
+            "review of artificial intelligence",
+            "review of applications",
+            "review of technologies",
+            "review of methods",
         ],
     }
 
