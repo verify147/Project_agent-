@@ -4,6 +4,8 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 from knowledge_retriever import KnowledgeRetriever
+from project_classifier import ProjectClassifier
+from plan_templates import PlanTemplates
 
 
 class ProjectPlanner:
@@ -21,6 +23,8 @@ class ProjectPlanner:
         self.projects_dir.mkdir(parents=True, exist_ok=True)
 
         self.retriever = KnowledgeRetriever(self.root_dir)
+        self.classifier = ProjectClassifier()
+        self.templates = PlanTemplates()
 
     @staticmethod
     def make_project_id(topic):
@@ -39,6 +43,8 @@ class ProjectPlanner:
         plan = {
             "project_id": self.make_project_id(topic),
             "topic": topic,
+            "project_classification": self.classifier.classify(topic),
+            "selected_template": self.classifier.classify(topic)["primary_type"],
             "department": department.get(
                 "department", department_name
             ),
@@ -193,6 +199,40 @@ class ProjectPlanner:
                 ]
             }
         }
+
+        # Apply the selected project-type template.
+        classification = plan["project_classification"]
+        selected_type = classification["primary_type"]
+        template = self.templates.get_template(selected_type)
+
+        if template is not None:
+            research_plan = plan["research_plan"]
+
+            research_plan["objectives"] = [
+                {"objective": item, "status": "proposed"}
+                for item in template["objectives"]
+            ]
+
+            research_plan["methodology"] = {
+                "status": "requires_project_specific_design",
+                "steps": template["methodology"]
+            }
+
+            research_plan["analysis_requirements"] = (
+                template["analysis_requirements"]
+            )
+
+            if "chapter_outline" in template:
+                research_plan["chapter_outline"] = (
+                    template["chapter_outline"]
+                )
+
+            # Keep the existing field for compatibility with
+            # other parts of the project.
+            research_plan["engineering_analysis"] = {
+                "status": "adapted_to_project_type",
+                "required_items": template["analysis_requirements"]
+            }
 
         return plan
 

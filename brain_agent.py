@@ -36,6 +36,74 @@ class AcademicBrain:
         }
 
 
+    def get_project_evidence(self, project_dir):
+        """Access a project's research evidence tracker."""
+
+        from research_evidence import ResearchEvidence
+
+        folder = Path(project_dir)
+
+        if not folder.is_absolute():
+            folder = self.root_dir / folder
+
+        return ResearchEvidence(folder)
+
+    def record_research_source(
+        self, project_dir, title, authors, year,
+        publisher, url, notes=""
+    ):
+        """Record a source for later verification."""
+
+        evidence = self.get_project_evidence(project_dir)
+        return evidence.add_source(
+            title, authors, year, publisher, url, notes
+        )
+
+    def record_research_claim(
+        self, project_dir, claim_text, source_ids=None
+    ):
+        """Record a claim for later evidence review."""
+
+        evidence = self.get_project_evidence(project_dir)
+        return evidence.add_claim(
+            claim_text, source_ids=source_ids
+        )
+
+    def show_evidence_report(self, project_dir):
+        """Display a project's research evidence status."""
+
+        evidence = self.get_project_evidence(project_dir)
+        report = evidence.get_review_report()
+
+        print("\nACADEMIC BRAIN - EVIDENCE REPORT")
+        print("=" * 38)
+        print("Sources:", report["total_sources"])
+        print("Claims:", report["total_claims"])
+        print(
+            "Sources needing review:",
+            len(report["sources_needing_review"])
+        )
+        print(
+            "Claims needing review:",
+            len(report["claims_needing_review"])
+        )
+        print(
+            "Ready for final review:",
+            report["ready_for_final_review"]
+        )
+
+        print("\nCLAIM REVIEW DETAILS")
+        for item in evidence.get_claim_review_details():
+            print("\nClaim:", item["claim_id"])
+            print("Text:", item["claim_text"])
+            print("Reasons:", item["review_reasons"])
+
+        report["claim_review_details"] = (
+            evidence.get_claim_review_details()
+        )
+
+        return report
+
     def generate_response(self, topic, department, prompt,
                           max_tokens=2000):
         """Generate academic content using Groq."""
