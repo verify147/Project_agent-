@@ -51,7 +51,7 @@ class ProjectPlanner:
             "institution": department.get(
                 "institution", "Not specified"
             ),
-            "status": "planning",
+            "status": "awaiting_student_review",
             "created_at": datetime.now(timezone.utc).isoformat(),
 
             "knowledge_status": {
