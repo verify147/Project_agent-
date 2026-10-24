@@ -43,7 +43,7 @@ class ChapterGenerator:
                 "The approved plan must contain a non-empty chapter outline."
             )
 
-        return "\\n".join(
+        return "\n".join(
             f"{number}. {section}"
             for number, section in enumerate(outline, start=1)
         )
